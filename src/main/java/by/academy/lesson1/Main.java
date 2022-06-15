@@ -2,7 +2,7 @@ package by.academy.lesson1;
 
 public class Main {
     public static class Man {
-        int arms;
+        int cars;
         String hair;
 
         public Man() {
@@ -12,10 +12,10 @@ public class Main {
 
     public static void main(String[] args) {
         Man man = new Man();
-        man.arms = 2;
+        man.cars = 2;
         man.hair = "black";
 
-        System.out.println(man.hair + " " + man.arms);
+        System.out.println(man.hair + " " + man.cars);
 
     }
 
