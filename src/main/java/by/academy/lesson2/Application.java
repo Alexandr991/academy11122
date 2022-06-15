@@ -10,14 +10,13 @@ public class Application {
         cat1.grow();
         cat1.grow();
         cat1.grow();
-        System.out.println("Возраст кота без имени:" +cat1.age);
+        System.out.println("Возраст кота без имени:" + cat1.age);
         Cat money = new Cat();
-        money.getMoney();
         money.setMoney(1234);
-        System.out.println("Первая буква имени кота: " +cat2.getInitials());
-        cat1.isHomeAnimal();
+        System.out.println("Сумма: " + money.getMoney());
+        System.out.println("Первая буква имени кота: " + cat2.getInitials());
         cat1.setHomeAnimal(true);
-        System.out.println("Кот домашний: " +cat1.isHomeAnimal);
+        System.out.println("Кот домашний: " + cat1.isHomeAnimal);
 
 
     }
