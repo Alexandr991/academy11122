@@ -1,4 +1,4 @@
 package by.academy.lesson3;
 
-public class Aplication {
+public class Task4 {
 }

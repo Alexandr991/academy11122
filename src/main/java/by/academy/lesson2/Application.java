@@ -16,7 +16,8 @@ public class Application {
         System.out.println("Сумма: " + money.getMoney());
         System.out.println("Первая буква имени кота: " + cat2.getInitials());
         cat1.setHomeAnimal(true);
-        System.out.println("Кот домашний: " + cat1.isHomeAnimal);
+        System.out.println("Кот c именем домашний?: " + cat1.isHomeAnimal);
+        System.out.println("Кот без имени домашний?: " + cat2.isHomeAnimal);
 
 
     }
