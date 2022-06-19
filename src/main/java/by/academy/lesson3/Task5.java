@@ -19,8 +19,9 @@ public class Task5 {
         } else {
             System.out.println("Max number:" + b + "\n" + "Min number:" + a);
         }
-        average = (a+b)/2;
+        average = (a + b) / 2;
         System.out.println("Average value:" + average);
+        scan.close();
     }
 }
 

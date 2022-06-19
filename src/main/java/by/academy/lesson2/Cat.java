@@ -3,7 +3,7 @@ package by.academy.lesson2;
 public class Cat {
     int age;
     String nickname;
-    double money;
+    long money;
     char initials;
     boolean isHomeAnimal;
 
@@ -32,11 +32,11 @@ public class Cat {
         this.initials = this.nickname.charAt(0); // string.charAt(0)  извлекаем первый символ строки
     }
 
-    public double getMoney() {
+    public long getMoney() {
         return money;
     }
 
-    public void setMoney(int money) {
+    public void setMoney(long money) {
         this.money = money;
 
     }

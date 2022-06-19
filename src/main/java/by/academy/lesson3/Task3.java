@@ -10,9 +10,9 @@ public class Task3 {
         a = scan.nextLong();
         if (a % 2 == 0) {
             System.out.println("You've entered an even number.");
-        }
-        else {
+        } else {
             System.out.println("You've entered an odd number.");
         }
+        scan.close();
     }
 }
