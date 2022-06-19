@@ -30,6 +30,7 @@ public class HomeworkTask2 {
                 break;
             default:
                 System.out.println("Unsupported type.");
+                break;
         }
         scan.close();
 
