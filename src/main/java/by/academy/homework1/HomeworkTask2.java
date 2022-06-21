@@ -22,7 +22,8 @@ public class HomeworkTask2 {
                 break;
             case "char":
                 String str = Integer.toString(number);
-                System.out.println("Your string is :" + dataType + " = " + str.charAt(0));
+                System.out.println("Your string is :" + dataType + " = " + "'" + str.charAt(0)
+                        + "'" + '\n' + "Unicode number is:" + str.codePointAt(0));
                 break;
             case "string":
                 str = Integer.toString(number);
