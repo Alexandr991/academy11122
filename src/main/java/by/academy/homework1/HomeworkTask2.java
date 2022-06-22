@@ -7,27 +7,53 @@ public class HomeworkTask2 {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter data Type:");
         String dataType = scan.next();
-        System.out.println("Enter number:");
-        int number = scan.nextInt();
         dataType = dataType.toLowerCase();
         switch (dataType) {
             case "int":
-                System.out.println("Your string is :" + dataType + " = " + number % 2);
+                System.out.println("Enter number:");
+                if (scan.hasNextInt()) {
+                    int number = scan.nextInt();
+                    System.out.println("Your string type is :" + dataType + " = " + number % 2);
+                } else {
+                    System.out.println("You entered not a number!");
+                }
                 break;
             case "double":
-                System.out.println("You string is :" + dataType + " = " + number * 0.7);
+                System.out.println("Enter number:");
+                if (scan.hasNextDouble()) {
+                    double number = scan.nextDouble();
+                    System.out.println("Your string type is :" + dataType + " = " + number * 0.7);
+                } else {
+                    System.out.println("You entered not a number!");
+                }
                 break;
             case "float":
-                System.out.println("You string is :" + dataType + " = " + number * number);
+                System.out.println("Enter number:");
+                if (scan.hasNextFloat()) {
+                    float number = scan.nextFloat();
+                    System.out.println("Your string type is :" + dataType + " = " + number * number);
+                } else {
+                    System.out.println("You entered not a number!");
+                }
                 break;
             case "char":
-                String str = Integer.toString(number);
-                System.out.println("Your string is :" + dataType + " = " + "'" + str.charAt(0)
-                        + "'" + '\n' + "Unicode number is:" + str.codePointAt(0));
+                System.out.println("Enter your char:");
+                if (scan.hasNext()) {
+                    String firstchar = scan.next();
+                    System.out.println("Your string type is :" + dataType + " = " + "'" + firstchar.charAt(0)
+                            + "'" + '\n' + "Unicode number is:" + firstchar.codePointAt(0));
+                } else {
+                    System.out.println("You entered not a char!");
+                }
                 break;
             case "string":
-                str = Integer.toString(number);
-                System.out.println("Your string is :" + dataType + " = " + "Hello " + str);
+                System.out.println("Enter your string:");
+                if (scan.hasNext()) {
+                    String yourString = scan.next();
+                    System.out.println("Your string type is :" + dataType + " = " + "Hello " + yourString);
+                } else {
+                    System.out.println("You entered not a string!");
+                }
                 break;
             default:
                 System.out.println("Unsupported type.");
