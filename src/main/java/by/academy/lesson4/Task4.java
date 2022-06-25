@@ -2,6 +2,11 @@ package by.academy.lesson4;
 
 import java.util.Scanner;
 
+/*
+ * Составьте программу, которая определяет кол-во отрицательных,
+ * кол-во положительных и кол-во нулей среди введеных чисел.
+ * Значение n вводится с клавиатуры.
+ */
 public class Task4 {
     public static void main(String[] arg) {
         int negative = 0;
