@@ -16,6 +16,7 @@ public class HomeworkTask4 {
                 "Дама Пик", "Король Пик", "Туз Пик", "2 Бубен", "3 Бубен",
                 "4 Бубен", "5 Бубен", "6 Бубен", "7 Бубен", "8 Бубен", "9 Бубен",
                 "10 Бубен", "Валет Бубен", "Дама Бубен", "Король Бубен", "Туз Бубен"};
+
         Scanner scan = new Scanner(System.in);
         for (; ; ) {
             System.out.println("Enter number of players:");
@@ -29,22 +30,32 @@ public class HomeworkTask4 {
                     System.out.println("There are too many people!");
 
                 } else {
-                    System.out.println("Let's start");
+                    System.out.println("Let's start!");
                     break;
                 }
                 System.out.println(numberOfPlayers);
-
             }
         }
-        String[] cardsForPlayer = new String[numberOfPlayers * cardsPerPlayer];
+        // В следующем методе мы перетасовываем колоду.
+        for (int i = 0; i < cards.length; i++) {
 
-        for (int i = 0; i < cardsPerPlayer * numberOfPlayers; i++) {
             int firstPlayer = (int) Math.floor(Math.random() * cards.length);
-            cardsForPlayer[i] = cards[firstPlayer];
-
+            String rand = cards[firstPlayer];
+            cards[firstPlayer] = cards[i];
+            cards[i] = rand;
 
         }
+        String[] cardsForPlayer = new String[numberOfPlayers * cardsPerPlayer];
+        for (int i = 0, n = 0; i < numberOfPlayers * cardsPerPlayer; i++) {
+            if (n % cardsPerPlayer == 0) {
+                System.out.println("\n" + "Cards for the next Player:");
+            }
+            cardsForPlayer[i] = cards[i];
+            System.out.print(cardsForPlayer[i] + "," + "  ");
 
-        System.out.println(Arrays.toString(cardsForPlayer));
+            n += 1;
+        }
+        scan.close();
     }
 }
+
