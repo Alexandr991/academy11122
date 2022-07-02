@@ -39,9 +39,9 @@ public class HomeworkTask4 {
         // В следующем методе мы перетасовываем колоду.
         for (int i = 0; i < cards.length; i++) {
 
-            int firstPlayer = (int) Math.floor(Math.random() * cards.length);
-            String rand = cards[firstPlayer];
-            cards[firstPlayer] = cards[i];
+            int newDeck = (int) Math.floor(Math.random() * cards.length);
+            String rand = cards[newDeck];
+            cards[newDeck] = cards[i];
             cards[i] = rand;
 
         }
