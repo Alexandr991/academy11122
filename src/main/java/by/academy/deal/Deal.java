@@ -7,37 +7,57 @@ import java.util.Arrays;
 public class Deal {
     private User seller;
     private User buyer;
-    //privat int index =0
+    private int index = 0;
 
     private Product[] products;
-    public LocalDateTime buyTime = LocalDateTime.now();           ///?????
+    public LocalDateTime buyTime = LocalDateTime.now();
     public LocalDate deadLine = LocalDate.now();
 
+    //    public Deal() {
+//        super();
+//
+//    }
+    //___________________________________________________-
     public Deal() {
         super();
-
-    }
-    /*
-    public Deal () {
-    super();
-    this.products =new Product[10]
+        this.products = new Product[10];
     }
 
 
-    private void grow(){
-    int newLength =(int) (products.length ==0 ?1: products.length*1.5)
-    Product[] newProducts = new Product[newLength];
-    System.arraycopy(products,0,newProducts,0, products.length);
-    products =newProducts;
+    private void grow() {
+        int newLength = (int) (products.length == 0 ? 1 : products.length * 1.5);
+        Product[] newProducts = new Product[newLength];
+        System.arraycopy(products, 0, newProducts, 0, products.length);
+        products = newProducts;
     }
-     */
+
+    private void decrease(Product[] basket) {
+        Product[] temp = new Product[basket.length];
+        int count = 0;
+        for (int i = 0; i < basket.length; i++) {
+            if (basket[i] == null) {
+                count++;
+
+
+            } else {
+                temp[i - count] = basket[i];
+            }
+        }
+        Product[] newProducts = new Product[basket.length - count];
+        System.arraycopy(temp, 0, newProducts, 0, newProducts.length);
+        products = newProducts;
+
+    }
+
+
+    //____________________________________________________________
 
 
     public Deal(User seller, User buyer, Product[] products) {
         this.seller = seller;
         this.buyer = buyer;
         this.products = products;
-        //this.index =products.length;
+        this.index = products.length;
     }
 
 
@@ -73,6 +93,30 @@ public class Deal {
         return deadLine;
     }
 
+    //______________________________________________________________________________________
+    public void addProduct(int basketProductIndex, int yNum, Product[] basket, Product[] products) {
+        if ((basketProductIndex) == basket.length) {
+            grow();
+        }
+        basket[basketProductIndex] =  products[yNum - 1];
+
+        basketProductIndex++;
+
+    }
+
+
+    public Product getProduct(int index) {
+        return products[index];
+    }
+
+
+    public void removeProduct(int yNum, Product[] basket) {
+        basket[yNum - 1] = null;
+        decrease(basket);
+
+    }
+
+    //__________________________________________________________________________________________
     public double fullPrice(Product[] products) {
         double result = 0;
         for (Product product : products) {
