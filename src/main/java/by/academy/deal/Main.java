@@ -26,11 +26,13 @@ public class Main {
         products[2] = new Fruits("Banana", 19, "yellow", true);
         products[3] = new Vegetables("Onion", 3, true, 5);
         products[4] = new Fruits("Watermelon", 25, "green", false);
-        Product[] basket = new Product[5];
+
         int basketProductIndex = 0;
+        Product[] basket = new Product[5];
         System.out.println("Select the products you want to buy.");
         for (Product product : products) {
             System.out.println("If you want to add product print 'y' else print 'n'.");
+
             System.out.println(" Product name:" + product.getProductName()
                     + ". Product price: " + product.getProductPrice());
             if (scan.next().equals("y")) {
@@ -42,7 +44,6 @@ public class Main {
                 // для возможного другого условия;
             }
         }
-        //___________________________________________________________________________
         Deal deal1 = new Deal(seller, buyer, basket);
 
         System.out.println("Would you like to change your set of products?" + "\n"
@@ -63,9 +64,11 @@ public class Main {
                         if (yNum == 0) {
                             break;
                         } else if (yNum >= 1 && yNum <= products.length) {
-                            deal1.addProduct(basketProductIndex, yNum, basket, products);
+                            basket = deal1.addProduct(basketProductIndex, yNum, basket, products);
+                            System.out.println(Arrays.toString(basket));
                             System.out.println("Enter quantity of product.");
                             basket[basketProductIndex].setQuantity(scan.nextInt());
+                            basketProductIndex++;
                         }
                     }
 
@@ -102,13 +105,9 @@ public class Main {
 
             System.out.println("Would you like to change your basket again? Enter 'y' or 'n':");
         }
-
         deal1.bill(basket);
         System.out.println();
         deal1.deal(buyer, seller, basket);
-
-
-        //_____________________________________________________________________________
 
         System.out.println("Enter date of your birthday in format: dd/MM/yyyy or dd-MM-yyyy");
         buyer.setDateOfBirthday(scan.next());

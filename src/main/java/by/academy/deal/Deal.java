@@ -13,22 +13,17 @@ public class Deal {
     public LocalDateTime buyTime = LocalDateTime.now();
     public LocalDate deadLine = LocalDate.now();
 
-    //    public Deal() {
-//        super();
-//
-//    }
-    //___________________________________________________-
     public Deal() {
         super();
         this.products = new Product[10];
     }
 
-
-    private void grow() {
-        int newLength = (int) (products.length == 0 ? 1 : products.length * 1.5);
+    private Product[] grow(Product[] basket) {
+        int newLength = (int) (basket.length == 0 ? 1 : basket.length * 1.5);
         Product[] newProducts = new Product[newLength];
-        System.arraycopy(products, 0, newProducts, 0, products.length);
-        products = newProducts;
+        System.arraycopy(basket, 0, newProducts, 0, basket.length);
+        System.out.println(Arrays.toString(newProducts));
+        return newProducts;
     }
 
     private void decrease(Product[] basket) {
@@ -37,7 +32,6 @@ public class Deal {
         for (int i = 0; i < basket.length; i++) {
             if (basket[i] == null) {
                 count++;
-
 
             } else {
                 temp[i - count] = basket[i];
@@ -48,10 +42,6 @@ public class Deal {
         products = newProducts;
 
     }
-
-
-    //____________________________________________________________
-
 
     public Deal(User seller, User buyer, Product[] products) {
         this.seller = seller;
@@ -93,15 +83,15 @@ public class Deal {
         return deadLine;
     }
 
-    //______________________________________________________________________________________
-    public void addProduct(int basketProductIndex, int yNum, Product[] basket, Product[] products) {
+    public Product[] addProduct(int basketProductIndex, int yNum, Product[] basket, Product[] products) {
         if ((basketProductIndex) == basket.length) {
-            grow();
+
+            basket = grow(basket);
+
         }
-        basket[basketProductIndex] =  products[yNum - 1];
-
-        basketProductIndex++;
-
+        basket[basketProductIndex++] = products[yNum - 1];
+        System.out.println(Arrays.toString(basket));
+        return basket;
     }
 
 
@@ -116,7 +106,6 @@ public class Deal {
 
     }
 
-    //__________________________________________________________________________________________
     public double fullPrice(Product[] products) {
         double result = 0;
         for (Product product : products) {
