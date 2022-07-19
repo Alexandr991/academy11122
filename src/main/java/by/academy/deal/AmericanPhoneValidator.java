@@ -3,7 +3,7 @@ package by.academy.deal;
 import java.util.regex.Pattern;
 
 public class AmericanPhoneValidator implements Validator {
-    private static final Pattern phoneNumber = Pattern.compile("\\+1[0-9]{3}[0-9]{7}"); // код города 3-6 символов?
+    private static final Pattern phoneNumber = Pattern.compile("\\+1[0-9]{3}[0-9]{7}");
     @Override
     public Pattern getPattern() {
         return phoneNumber;

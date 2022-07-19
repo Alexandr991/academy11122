@@ -22,7 +22,6 @@ public class Deal {
         int newLength = (int) (basket.length == 0 ? 1 : basket.length * 1.5);
         Product[] newProducts = new Product[newLength];
         System.arraycopy(basket, 0, newProducts, 0, basket.length);
-        System.out.println(Arrays.toString(newProducts));
         return newProducts;
     }
 
@@ -90,7 +89,6 @@ public class Deal {
 
         }
         basket[basketProductIndex++] = products[yNum - 1];
-        System.out.println(Arrays.toString(basket));
         return basket;
     }
 
